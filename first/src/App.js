@@ -3,7 +3,11 @@ import React from 'react';
 
 class Item extends React.Component{
   render(){
-    return <li> Content</li>
+    return (
+      <li>
+        {this.props.name},${this.props.price}
+      </li>
+    )
   }
 }
 
@@ -13,8 +17,8 @@ class App extends React.Component {
         <div>
           <h1> Hello React </h1>
           <ul>
-            <Item/>
-            <Item/>
+            <Item name = "Apple" price = "0.99"/>
+            <Item name = "orange" price = "0.89"/>
           </ul>
         </div>
       )
