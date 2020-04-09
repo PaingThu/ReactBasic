@@ -12,12 +12,23 @@ class Item extends React.Component{
 }
 
 class App extends React.Component {
+
   state = {
     items: [
       {id: 1, name: 'Apple',price: 0.99},
       {id: 2, name: 'Orange', price: 0.89}
     ]
   }
+
+  add = () =>{
+    let id = this.state.items.length + 1;
+    this.setState({
+      items:[
+        ...this.state.items,{id,name:`New Item ${id}`,price:0.01*id}
+      ]
+    });
+  }
+
   render(){
     return (
         <div>
@@ -29,6 +40,7 @@ class App extends React.Component {
               )
             })}
           </ul>
+          <button onClick={this.add}>Add</button>
         </div>
       )
   }
