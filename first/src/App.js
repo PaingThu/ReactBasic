@@ -12,13 +12,22 @@ class Item extends React.Component{
 }
 
 class App extends React.Component {
+  state = {
+    items: [
+      {id: 1, name: 'Apple',price: 0.99},
+      {id: 2, name: 'Orange', price: 0.89}
+    ]
+  }
   render(){
     return (
         <div>
           <h1> Hello React </h1>
           <ul>
-            <Item name = "Apple" price = "0.99"/>
-            <Item name = "orange" price = "0.89"/>
+            {this.state.items.map(i => {
+              return(
+                <Item name = {i.name} price = {i.price}/>
+              )
+            })}
           </ul>
         </div>
       )
