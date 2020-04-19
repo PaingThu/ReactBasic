@@ -1,29 +1,40 @@
-import React from 'react';
+import React, {createRef, useState } from 'react';
 
-/* Functional Component */
-// function App(props) {
-//   return(
-//     <div>
-//       <h1>{props.name}</h1>
-//     </div>
-//   );
-//
-// }
-
-/* Functional Component (Arrow Function)*/
-// const App = props => {
-//   return (
-//     <div>
-//         <h1>{props.name}</h1>
-//     </div>
-//   );
-// }
-
-/* Functional Component (Arrow Function short form because of only one compoent )*/
-const App = props => (
-  <div>
-    <h1> {props.name} </h1>
-  </div>
+const Item = ({name, price}) => (
+  <li> {name}, ${price} </li>
 )
+
+
+
+const App = props => {
+  let [ items, setItems ] = React.useState([
+    {id: 1, name: 'Apple', price: 0.99},
+    {id: 2, name: 'Orange', price: 0.89}
+  ]);
+
+  let nameRef = createRef();
+  let priceRef = createRef();
+
+  let add = () => {
+    let id = items.length + 1;
+    let name = nameRef.current.value;
+    let price = priceRef.current.value;
+
+    setItems([
+      ...items, { id, name, price }
+    ]);
+  }
+
+  return (
+    <div>
+      <ul>
+        {items.map(i => <Item name = {i.name} price = {i.price} /> )}
+      </ul>
+      <input type = "text" ref = {nameRef} /> <br />
+      <input type = "text" ref = {priceRef} /> <br />
+      <button onClick = {add}> Add </button>
+    </div>
+  );
+}
 
 export default App;
