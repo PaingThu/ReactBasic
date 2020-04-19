@@ -35,6 +35,22 @@ class Item extends React.Component{
   }
 }
 
+class Title extends React.Component {
+  render() {
+    return <h1>{this.props.name}</h1>
+  }
+}
+
+class Header extends React.Component {
+  render() {
+    return(
+      <div>
+        <Title name = {this.props.name} />
+      </div>
+    )
+  }
+}
+
 //React Component called "App"
 class App extends React.Component {
 
@@ -58,6 +74,7 @@ class App extends React.Component {
   render(){
     return (
         <div>
+          <Header name = " App Title" />
           <h1> Hello React </h1>
           <ul>
             {this.state.items.map(i => {
@@ -71,10 +88,10 @@ class App extends React.Component {
             })}
           </ul>
           <AddForm add = {this.add}/>
-          //AddForm Component with add property that has add() of App Component
         </div>
       )
   }
+  //AddForm Component with add property that has add() of App Component
 }
 
 export default App;
