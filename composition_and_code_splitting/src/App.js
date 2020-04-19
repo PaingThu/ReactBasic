@@ -1,26 +1,32 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Composition and Code Spilitting
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+  /* Toolbar Component
+   * using porps.children (children of Toolbar Component )
+   */
+class Toolbar extends React.Component{
+  render() {
+    return (
+      <div style = {{ background: 'cyan', padding : 10 }}>
+        {this.props.children}
+
+      </div>
+    )
+  }
+}
+
+class App extends React.Component{
+  render(){
+    return (
+      <div>
+        <Toolbar>
+          <h1> Hello React </h1>
+          <h2> Component composition </h2>
+        </Toolbar>
+      </div>
+    );
+  }
+
 }
 
 export default App;
