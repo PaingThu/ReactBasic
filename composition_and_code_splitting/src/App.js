@@ -1,20 +1,9 @@
 import React from 'react';
+//importing Toolbar.js (Code Splitting)
+import Toolbar from './Toolbar';
 
 
-  /* Toolbar Component
-   * using porps.children (children of Toolbar Component )
-   */
-class Toolbar extends React.Component{
-  render() {
-    return (
-      <div style = {{ background: 'cyan', padding : 10 }}>
-        {this.props.children}
-
-      </div>
-    )
-  }
-}
-
+// App Component
 class App extends React.Component{
   render(){
     return (
