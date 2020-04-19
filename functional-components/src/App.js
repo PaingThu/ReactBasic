@@ -1,26 +1,29 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Functional Components
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+/* Functional Component */
+// function App(props) {
+//   return(
+//     <div>
+//       <h1>{props.name}</h1>
+//     </div>
+//   );
+//
+// }
+
+/* Functional Component (Arrow Function)*/
+// const App = props => {
+//   return (
+//     <div>
+//         <h1>{props.name}</h1>
+//     </div>
+//   );
+// }
+
+/* Functional Component (Arrow Function short form because of only one compoent )*/
+const App = props => (
+  <div>
+    <h1> {props.name} </h1>
+  </div>
+)
 
 export default App;
